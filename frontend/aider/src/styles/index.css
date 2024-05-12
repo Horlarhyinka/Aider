@@ -1,0 +1,55 @@
+#root{
+    padding-top: 65px;
+    background-color: black;
+    font-family: "Montserrat";
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+
+.cta{
+    border-radius: 5px;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 580;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    color: white;
+}
+
+.pry-color{
+    background-color: #930606;
+}
+
+.pry-color-light{
+    background-color: #FF0000;
+}
+
+.danger{
+    color: #FF0000;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.065);
+    border-radius: 8px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.138);
+    border-radius: 8px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.334);
+  }

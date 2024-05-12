@@ -1,0 +1,121 @@
+
+.home{
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.home section{
+    display: inline-block;
+    width: 90%;
+    box-sizing: border-box;
+    margin-top: 35px;
+}
+
+.write-up1{
+
+}
+
+.write-up1 h2{
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.write-up1 p{
+    font-size: 20px;
+    font-weight: 500;
+    color:  rgba(255, 255, 255, 0.853);
+    margin-bottom: 45px;
+}
+
+.write-up1+img{
+    width: 120%;
+    height: auto;
+    position: relative;
+    left: -20px;
+}
+
+
+.home .section-2 h4{
+    font-size: 28px;
+    margin-top: 0px;
+}
+
+.home .section-3 h4{
+    font-size: 28px;
+    margin: 35px 0px 8px;
+}
+
+.home .section-3 .custom-icn{
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+
+.home .section-3 .icn{
+    font-size: 28px;
+    margin: 8px;
+    color: #FF0000;
+}
+
+.home .section-3 .custom-icn hr{
+    width: 25px;
+    display: inline-block;
+    border: 3px solid white;
+    position: relative;
+    top: -10px;
+    border-radius: 5px;
+}
+
+.home .section-4{
+    width: 100%;
+}
+
+.home .section-4 .list-wrapper{
+    width: 100%;
+    height: auto;
+    /* border: 1px solid red; */
+    text-align: center;
+}
+
+.home .section-4 .story-card-list{
+    /* border: 1px solid green; */
+    width: 95%;
+    height: 310px;
+    display: inline-flex;
+    overflow-x: scroll;
+}
+
+.home .section-4 .story-form{
+    display: inline-block;
+    width: 95%;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.home .section-4 .story-form h4{
+    font-size: 24px;
+}
+
+.home .section-4 .story-form textarea{
+    width: 90%;
+    height: 85px;
+    border-radius: 5px;
+    background-color: #0D0D0D;
+    margin: 15px 0px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.611);
+    color: white;
+}
+
+.home .section-4 .story-form textarea:focus{
+    outline: rgba(255, 255, 255, 0.752);
+
+}
+
+
+.home .section-4 .story-form button{
+    background-color: blue;
+    width: 90%;
+}

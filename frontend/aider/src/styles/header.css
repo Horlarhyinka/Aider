@@ -1,0 +1,52 @@
+.header{
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(120,0,0);
+    height: 65px;
+}
+
+.header .logo-wrapper{
+    float: left;
+}
+
+.header .logo-wrapper img{
+    width: 64px;
+    aspect-ratio: 1;
+    display: inline-block;
+    clear: both;
+}
+
+.header .logo-wrapper h1{
+    font-size: 24px;
+    font-weight: 680;
+    display: inline-block;
+    clear: both;
+    position: relative;
+    top: -20px;
+}
+
+.header .links{
+    float: right;
+    margin-right: 15%;
+    list-style: none;
+}
+
+.header a{
+    text-decoration: none;
+    color: white;
+}
+
+.header .links li{
+    display: inline-block;
+    padding: 12px;
+    margin: 0px 12px;
+}
+
+@media screen and (max-width: 830px){
+    .links{
+        display: none;
+    }
+}

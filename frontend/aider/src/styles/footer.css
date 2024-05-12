@@ -1,0 +1,38 @@
+.footer{
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 86px;
+    vertical-align: top;
+    
+}
+
+.footer hr{
+    display: inline-block;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.footer .col{
+    text-align: left;
+    display: inline-block;
+    width: 30%;
+    margin: 25px 12px 35px;
+    color: white;
+    position: relative;
+}
+
+.footer .col h4{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footer .col.l{
+    top: -20px;
+}
+
+.footer .col p{
+    font-size: 16;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.739);
+}
