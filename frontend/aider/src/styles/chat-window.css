@@ -1,15 +1,21 @@
 .chat-window{
     height: 80vh;
     width: 95%;
-    position: relative;
-    /* border: 1px solid red; */
+    position: absolute;
     display: inline-block;
+    left: 5px;
+    top: 65px;
+    transition: left 450ms, top 450ms;
+    background-color: black;
+    z-index: 0.9;
 }
 
 .chat-window .chat-icon{
     position: absolute;
     top: 0px;
     left: 0px;
+    top: 400ms;
+    left: 400ms;
 }
 
 .chat-window .chat-frame{
@@ -53,8 +59,14 @@
     border: none;
     box-sizing: border-box;
     padding: 8px;
-    font-size: 14px;
+    font-size: 16px;
+    color: white;
+    letter-spacing: 0.2;
 
+}
+
+.chat-window .message-input:focus{
+    outline: none;
 }
 
 .chat-window .icn{
@@ -66,8 +78,28 @@
 
 .chat-window .messages{
     display: inline-block;
-    border: 1px solid red;
     width: 100%;
     position: relative;
     height: calc(100% - 85px);
+    overflow-y: scroll;
+    background-color: black;
 }
+
+.chat-window.closed{
+    left: 102%;
+    transition: left 450ms;
+    
+}
+
+.chat-window.closed .chat-icon{
+    top: 80%;
+    left: -85px;
+    transition: top 400ms, left 400ms;
+}
+
+@media screen and (min-width: 695px){
+    .chat-window{
+        height: 95vh;
+    }
+}
+

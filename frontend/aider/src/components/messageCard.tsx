@@ -1,5 +1,7 @@
 import { MessageProp } from "./types/messageProp";
 
+import "../styles/message-card.css"
+
 
 export const MessageCard = (props: {message: MessageProp}) =>{
     return <div className="message-card">

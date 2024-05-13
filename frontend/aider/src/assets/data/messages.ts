@@ -28,5 +28,12 @@ export const messages = [
         
         Remember, it's important to act quickly but also to avoid causing further harm. If you're not trained in first aid or emergency care, do your best to assist while waiting for professional help to arrive.`
 
+    },
+    {
+        sentBy:{
+            name: "Ben Kennedy",
+            avatar: Bot
+        },
+        content: "Thank you, I'll try these out..."
     }
 ]

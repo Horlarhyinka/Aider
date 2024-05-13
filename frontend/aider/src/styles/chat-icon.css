@@ -9,6 +9,7 @@
     top: 50vh;
     right: 10px;
     border: 2px solid white;
+    z-index: 1;
 }
 
 .chat-icon hr{

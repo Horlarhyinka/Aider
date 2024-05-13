@@ -1,0 +1,59 @@
+.message-card{
+    max-width: 375px;
+    text-align: left;
+    display: inline-block !important;
+}
+
+.message-card .msg-wrapper{
+    display: inline-block;
+    text-align: left;
+}
+
+
+.message-card .user{
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    vertical-align: top;
+
+
+}
+
+.message-card .user img{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    margin: 8px 24px 8px 0px;
+    display: inline-block;
+    position: relative;
+    bottom: -10px;
+
+}
+
+.message-card .user p{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 12px 0px;
+    display: inline-block;
+    position: relative;
+    top: -10px;
+}
+
+.message-card .message-content{
+    padding: 24px 12px;
+    text-align: left;
+    color: white;
+    background-color: #171717;
+    margin-top: 0px;
+    border-radius: 0px 12px 12px 12px;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.msg-wrapper.self .message-card{
+    text-align: right;
+}
+
+.msg-wrapper.self .user{
+    text-align: right;
+}
