@@ -1,6 +1,9 @@
 import { Footer } from './components/footer'
 import { Header } from './components/header'
-import { Home } from './containers/home'
+import { ChatWindow } from './containers/chatWindow'
+// import { Home } from './containers/home'
+// import { Report } from './containers/report'
+// import { ReportMade } from './containers/ReportMade'
 import "./styles/index.css"
 
 function App() {
@@ -8,7 +11,10 @@ function App() {
   return (
     <>
     <Header isAuthenticated={false} />
-    <Home />
+    {/* <Home /> */}
+    {/* <Report /> */}
+    {/* <ReportMade/> */}
+    <ChatWindow />
     <Footer />
     </>
   )

@@ -1,0 +1,61 @@
+.report-form{
+    width: 95%;
+    max-width: 350px;
+    display: inline-block;
+    text-align: center;
+    height: 60vh;
+    max-height: 700px;
+    align-self: center;
+}
+
+.report-form h1{
+    display: block;
+    text-align: center;
+    font-size: 22px;
+    padding: 12px;
+    margin: 15px 0px 25px;
+}
+
+.report-form .field-wrapper{
+    margin: 15px 0px 25px;
+    box-sizing: border-box;
+    width: 95%;
+    text-align: left;
+}
+
+.report-form label{
+    display: block;
+    padding: 12px;
+}
+
+.report-form input{
+    height: 35px;
+    width: 95%;
+    margin: 12px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.439);
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.report-form textarea{
+    width: 95%;
+    margin: 12px;
+    background: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.439);
+    height: 85px;
+    border-radius: 5px;
+}
+
+.report-form button{
+    width: 93%;
+}
+
+.report-form input:focus, .report-form textarea:focus{
+    outline: none;
+}

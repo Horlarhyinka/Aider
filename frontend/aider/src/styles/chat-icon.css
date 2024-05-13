@@ -1,0 +1,48 @@
+.chat-icon{
+    text-align: center;
+    width: 68px;
+    border-radius: 50% 8px 50% 50%;
+    background-color: rgb(251, 54, 54);
+    box-sizing: border-box;
+    height: 68px;
+    position: absolute;
+    top: 50vh;
+    right: 10px;
+    border: 2px solid white;
+}
+
+.chat-icon hr{
+    background-color: white;
+    width: 25px;
+    display: inline-block;
+    margin: 12px 0px;
+
+}
+
+.chat-icon hr.f{
+    position: relative;
+    top: 15px;
+    left: 12px;
+}
+
+.chat-icon hr.s{
+    position: relative;
+    top: 30px;
+    left: -15px;
+}
+
+.chat-icon span{
+    border-radius: 50%;
+    color: white;
+    background-color: red;
+    font-size: 10px;
+    font-weight: bolder;
+    position: relative;
+    bottom: -20px;
+    left: -20px;
+    aspect-ratio: 1;
+    padding: 8px 12px;
+    /* display: none; */
+    /* border: 2px solid white; */
+
+}
