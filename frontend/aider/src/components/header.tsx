@@ -1,6 +1,7 @@
 import "../styles/header.css"
 import Logo from "../assets/img/logo.png";
 
+
 export const Header = (prop: {isAuthenticated: boolean})=>{
     return <div className="header">
         <div className="logo-wrapper">
