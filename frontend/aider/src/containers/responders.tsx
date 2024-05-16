@@ -6,6 +6,7 @@ import { ResponderCard } from "../components/responder-card"
 import "../styles/responders.css"
 import { ResponderProp } from "../components/types/responderProp"
 import { getDistance } from "../utils/factory"
+import { ChatWindow } from "./chatWindow"
 
 export const Responders = () =>{
 
@@ -17,10 +18,11 @@ export const Responders = () =>{
         setRespondersList(responders.sort((a,b)=>{
             return parseFloat(getDistance(a.coord, curr)) - parseFloat(getDistance(b.coord, curr))
         }))
-    },[ responders])
+    },[])
 
     return <div className="responders">
         <button className="cancel-emergency" >Cancel Emergency</button>
+        <ChatWindow />
         <h4 className="count-header" >Responders({11})</h4>
         <div className="responders-list">
             {respondersList.map(r=><ResponderCard curr={curr} key={r.id} responder={r} />)}

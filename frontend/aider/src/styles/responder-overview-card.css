@@ -1,0 +1,59 @@
+.responder-overview-card{
+    display: inline-block;
+    width: 98%;
+    /* height: 80px; */
+    vertical-align: top;
+    padding: 12px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.responder-overview-card .avatar{
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: relative;
+    /* top: -70px; */
+    margin: 12px;
+    align-self: top;
+    vertical-align: top;
+}
+
+.responder-overview-card .wrapper{
+    display: inline-block;
+    width: calc(90% - 100px);
+    text-align: left;
+}
+
+.responder-overview-card .wrapper h4{
+    display: block;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin: 12px 5px 2px;
+}
+
+.responder-overview-card .wrapper .about{
+    display: block;
+    word-wrap: break-word;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.781);
+    padding: 8px 5px;
+    margin: 0px;
+}
+
+.responder-overview-card .wrapper .icn{
+    font-size: 16px;
+    color: white;
+    display: inline-block;
+}
+
+.responder-overview-card .wrapper span.distance{
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.679);
+    vertical-align: top;
+    margin-left: 8px;
+}
