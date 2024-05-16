@@ -11,7 +11,7 @@ export const Header = (prop: {isAuthenticated: boolean})=>{
             <a href=""><li>Home</li></a>
             <a href=""><li>Dashboard</li></a>
             <a href=""><li>Emergencies</li></a>
-            <a href=""><li>Rewards</li></a>
+            <a href=""><li>Badges</li></a>
         </ul>
     </div>
 }

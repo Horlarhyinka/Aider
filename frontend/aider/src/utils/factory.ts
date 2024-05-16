@@ -13,7 +13,7 @@ export function getDistance(l1: Coordinate, l2:Coordinate){
     Math.sin(dLng/2) * Math.sin(dLng/2) * Math.cos(lat1) * Math.cos(lat2);
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
       var d = R * c;
-      return d;
+      return (Math.round(d * 100) / 100).toFixed(2);;
 }
 
 function toRad(Value: number) 

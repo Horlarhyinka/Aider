@@ -27,3 +27,13 @@
     width: 90%;
     font-weight: 580;
 }
+
+.responders .responders-list{
+    display: inline-block;
+    width: 90%;
+    text-align: left;
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
+
