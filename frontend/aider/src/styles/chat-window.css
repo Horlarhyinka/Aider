@@ -21,7 +21,7 @@
 .chat-window .chat-frame{
     /* border:  1px solid yellow; */
     height: 90%;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0px;
     width: 100%;
     box-sizing: border-box;
@@ -88,6 +88,7 @@
 .chat-window.closed{
     left: 102%;
     transition: left 450ms;
+    width: 0px;
     
 }
 
@@ -95,6 +96,10 @@
     top: 80%;
     left: -85px;
     transition: top 400ms, left 400ms;
+}
+
+.chat-window.closed .chat-frame{
+    display: none;
 }
 
 @media screen and (min-width: 695px){

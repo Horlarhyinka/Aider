@@ -1,0 +1,29 @@
+.responders{
+
+}
+
+.responders .cancel-emergency{
+    display: inline-block;
+    width: 90%;
+    max-width: 450px;
+    padding: 12px;
+    border: 1px solid rgb(254, 43, 43);
+    background: none;
+    color: rgb(254, 43, 43);
+    font-size: 16px;
+    font-weight: 600;
+    margin: 45px 0px 25px;
+    border-radius: 2px;
+}
+
+.responders .cancel-emergency:hover{
+    background-color: red;
+    color: white;
+}
+
+.responders .count-header{
+    text-align: left;
+    display: inline-block;
+    width: 90%;
+    font-weight: 580;
+}
