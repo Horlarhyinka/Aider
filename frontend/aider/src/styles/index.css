@@ -23,6 +23,10 @@ body{
     color: white;
 }
 
+select:focus, input:focus{
+  outline: none;
+}
+
 .pry-color{
     background-color: #930606;
 }
@@ -33,6 +37,45 @@ body{
 
 .danger{
     color: #FF0000;
+}
+
+.pry-form{
+  display: inline-block;
+  width: 95%;
+  max-width: 580px;
+  box-sizing: border-box;
+}
+
+.pry-form h1{
+  display: inline-block;
+  width: 95%;
+  max-width: 550px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 35px;
+}
+
+.pry-form label{
+  display: inline-block;
+  width: 90%;
+  text-align: left;
+}
+
+.pry-form .field-wrapper{
+  /* border: 1px solid blue; */
+  display: inline-block;
+  width: 90%;
+  text-align: left;
+  margin-bottom: 35px;
+}
+
+.pry-form input, .pry-form select{
+  height: 35px;
+  padding: 5px;
+  background: none;
+  width: 95%;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.448);
 }
 
 ::-webkit-scrollbar {

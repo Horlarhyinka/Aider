@@ -10,7 +10,7 @@
 .footer hr{
     display: inline-block;
     width: 90%;
-    background-color: rgba(255, 255, 255, 0.07);
+    border: 0.5px solid rgba(255, 255, 255, 0.142);
 }
 
 .footer .col{

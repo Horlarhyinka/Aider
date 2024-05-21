@@ -1,0 +1,29 @@
+.register{
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 530px;
+}
+
+.register button{
+    background-color: blue;
+    padding: 12px;
+    width: 90%;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 35px;
+}
+
+.register form option{
+    background-color: black;
+    color: white;
+    width: 95%;
+    
+}
+
+.register a{
+    text-decoration: none;
+}
