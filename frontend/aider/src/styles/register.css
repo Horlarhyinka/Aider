@@ -5,6 +5,7 @@
     max-width: 530px;
 }
 
+
 .register button{
     background-color: blue;
     padding: 12px;
@@ -15,6 +16,7 @@
     font-weight: 600;
     color: white;
     margin-bottom: 35px;
+    box-sizing: border-box;
 }
 
 .register form option{
@@ -26,4 +28,5 @@
 
 .register a{
     text-decoration: none;
+    color: rgb(254, 47, 47);
 }

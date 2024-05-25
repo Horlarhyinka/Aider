@@ -1,0 +1,44 @@
+.emergency-card{
+    display: inline-block;
+    width: 95%;
+    border-radius: 12px;
+    /* border: 1px solid red; */
+    margin: 5px;
+    background-color: #101010;
+    padding: 18px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.emergency-card .coord-wrapper{
+    height: 120px;
+    width: 100%;
+    display: inline-block;
+    aspect-ratio: unset;
+    border-radius: 12px;
+    vertical-align: bottom;
+    position: relative;
+    bottom: 36px;
+}
+
+.emergency-card .map-wrapper{
+    height: 120px;
+    border-radius: 12px;
+    border: 1px solid green;
+    width: 100%;
+}
+
+.emergency-card h4{
+    display: inline-block;
+    color: #FF2407;
+    width: 100%;
+    font-size: 18px;
+    margin: 8px 0px 12px;
+}
+
+.emergency-card p{
+    display: inline-block;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 24px;
+}

@@ -1,0 +1,13 @@
+.dashboard .badges{
+    display: inline-block;
+    width: calc(100% - 30px);
+    max-width: 550px;
+}
+
+.dashboard .cta{
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 450;
+    /* margin-top: 45px; */
+}
+

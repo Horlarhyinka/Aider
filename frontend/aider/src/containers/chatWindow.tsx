@@ -1,9 +1,9 @@
-import { ChatIcon } from "../components/chatIcon"
+import { ChatIcon } from "../components/chat-icon"
 import {Icon} from "@iconify/react" 
 
 import "../styles/chat-window.css"
 import { messages } from "../assets/data/messages"
-import { MessageCard } from "../components/messageCard";
+import { MessageCard } from "../components/message-card";
 import { useState } from "react";
 
 export const ChatWindow = ()=>{

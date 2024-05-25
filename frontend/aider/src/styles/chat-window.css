@@ -7,7 +7,7 @@
     top: 65px;
     transition: left 450ms, top 450ms;
     background-color: black;
-    z-index: 0.9;
+    z-index: 1;
 }
 
 .chat-window .chat-icon{

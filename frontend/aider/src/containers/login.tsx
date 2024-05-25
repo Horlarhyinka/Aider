@@ -9,7 +9,7 @@ export const Login = () =>{
             <input type="text" name="email" />
         </div>
         <div className="field-wrapper">
-            <label htmlFor="password" >password <span className="danger" ></span></label>
+            <label htmlFor="password" >password <span className="danger" >*</span></label>
             <input type="password" name="password" />
         </div>
         <button>Login</button>

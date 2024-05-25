@@ -1,0 +1,18 @@
+.badge-card{
+    display: inline-block;
+    max-width: 30%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid rgba(243, 243, 243, 0.056);
+    vertical-align: top;
+    margin: 10px 5px 35px;
+}
+
+.badge-card p.title{
+    font-size: 16px;
+    font-weight: 550;
+}
+
+.badge-card .icn{
+    font-size: 24px;
+}

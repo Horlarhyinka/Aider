@@ -1,6 +1,9 @@
 import { Footer } from './components/footer'
 import { Header } from './components/header'
-import { Login } from './containers/login'
+import { Respond } from './containers/respond'
+// import { Dashboard } from './containers/dashboard'
+// import { Emergencies } from './containers/emergencies'
+// import { Login } from './containers/login'
 // import { Register } from './containers/register'
 // import { Home } from './containers/home'
 // import { Report } from './containers/report'
@@ -21,7 +24,10 @@ function App() {
     {/* <Responders /> */}
     {/* <ResponderPreview /> */}
     {/* <Register /> */}
-    <Login />
+    {/* <Login /> */}
+    {/* <Dashboard /> */}
+    {/* <Emergencies /> */}
+    <Respond />
     <Footer /> 
     </>
   )

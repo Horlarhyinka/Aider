@@ -1,0 +1,30 @@
+.respond{
+
+}
+
+.respond h4.name{
+    width: 95%;
+    display: inline-block;
+    text-align: left;
+    margin-top: 25px;
+    color: #FF2407;
+    
+}
+
+.respond .description{
+    width: 95%;
+    display: inline-block;
+    text-align: left;
+    margin-top: 0px;
+}
+
+.respond .icn{
+    font-size: 18px;
+
+}
+
+.respond .cta{
+    width: 95%;
+    margin: 25px 0px 20px;
+    background-color: #FF0000;
+}

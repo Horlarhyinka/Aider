@@ -2,7 +2,7 @@ import { ReportMadeProps } from "./types/props/reportMadeProps";
 import Kit from "../assets/img/kit.png"
 
 import '../styles/report-made.css';
-import { ChatIcon } from "../components/chatIcon";
+import { ChatIcon } from "../components/chat-icon";
 import { ChatWindow } from "./chatWindow";
 
 
