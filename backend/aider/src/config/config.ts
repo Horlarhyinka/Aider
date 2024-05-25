@@ -5,7 +5,7 @@ dotenv.config()
 export const appConfig = {
     port: process.env.PORT || 8001,
     host: process.env.HOST || "localhost",
-    secret: process.env.APP_SECRET
+    secret: process.env.APP_SECRET!
 }
 
 export const dbConfig = {

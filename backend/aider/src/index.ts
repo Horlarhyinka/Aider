@@ -4,6 +4,7 @@ import cors from "cors"
 import http from "http"
 import { connectDB } from "./config/db.config"
 import { appConfig } from "./config/config"
+import authRouter from "./routers/auth.router"
 
 const app = express()
 
@@ -12,6 +13,8 @@ app.use(cors({origin: "*"}))
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
+
+app.use("/api/v1/auth", authRouter)
 
 async function start(){
     const server = http.createServer(app)
