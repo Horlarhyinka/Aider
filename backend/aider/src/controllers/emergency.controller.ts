@@ -37,7 +37,7 @@ export const respondToEmergency = catchAsyncErrors(async(req: AuthRequest, res: 
     if(validateRes.error)return res.status(400).json({message: validateRes.error.message})
     const emergency = await EmergencyModel.findById(id)
     if(!emergency)return res.status(404).json({message: "emergency not found"})
-    await emergencyService.addResponder((emergency._id as ObjectId).toString(), req.user)
+    await emergencyService.addResponder((emergency._id as ObjectId).toString(), {...req.user.toObject()})
     return res.status(200).json(emergency)
 })
 

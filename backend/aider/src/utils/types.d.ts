@@ -7,6 +7,6 @@ export interface Coordinate{
 }
 
 export interface AuthRequest extends Request{
-    user: UserSchema
+    user: Document<UserSchema>
 }
 

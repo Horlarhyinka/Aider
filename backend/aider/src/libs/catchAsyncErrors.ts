@@ -8,6 +8,7 @@ export default (fn: Function)=>{
         }catch(err: any){
             const mongooseErrors = catchMongooseErrors(err)
             if(mongooseErrors)return res.status(400).json({message: mongooseErrors})
+            console.log({err})
             return res.status(500).json({message: "internal server error"})
         }
 }

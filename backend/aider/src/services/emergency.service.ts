@@ -1,5 +1,7 @@
 import { UserSchema } from "../models/types/user";
+import { pick } from "../utils/factory";
 import { FirebaseService, firebaseService as fbService } from "./firebase.service";
+import { Document } from "mongoose";
 
 class EmergencyService {
 
@@ -7,9 +9,11 @@ class EmergencyService {
         private firebaseService: FirebaseService  = fbService,
     ){}
 
-    addResponder(emergencyId: string, user: UserSchema){
+    addResponder(emergencyId: string, user: Document<UserSchema>){
         const path = `emergencies/${emergencyId}/responders`
-        return this.firebaseService.sendToFirebase(path, {...user, password: undefined})
+        const cp = {...user} as any
+        delete cp["password"]
+        return this.firebaseService.sendToFirebase(path, {...pick(user, Object.keys(cp))})
     }
 
     removeResponder(emergencyId: string, userRemoteId: string){

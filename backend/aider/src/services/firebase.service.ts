@@ -1,5 +1,6 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, where, WhereFilterOp } from "firebase/firestore";
 import { getFirestoreDB } from "../config/firebase.config";
+import { cleanObjectIds, cleanUndefined } from "../utils/cleaners";
 
 
 export class FirebaseService {
@@ -8,6 +9,7 @@ export class FirebaseService {
 
     async sendToFirebase(path: string, data: object){
         //clean data  before sending...
+        data = cleanUndefined(cleanObjectIds(data))
         const firestore = await getFirestoreDB()
         const docRef = collection(firestore, path)
         await addDoc(docRef, data)
