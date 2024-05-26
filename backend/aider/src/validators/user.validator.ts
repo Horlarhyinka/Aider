@@ -19,6 +19,7 @@ class Validator{
             password: Joi.string().required(),
         }).validate(obj)
     }
+
 }
 
 export const userValidator =  new Validator()

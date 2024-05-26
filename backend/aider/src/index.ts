@@ -5,6 +5,7 @@ import http from "http"
 import { connectDB } from "./config/db.config"
 import { appConfig } from "./config/config"
 import authRouter from "./routers/auth.router"
+import emergencyRouter from "./routers/emergency.router"
 
 const app = express()
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
 app.use("/api/v1/auth", authRouter)
+app.use("/api/v1/emergencies", emergencyRouter)
 
 async function start(){
     const server = http.createServer(app)
