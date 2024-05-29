@@ -6,3 +6,5 @@ export function pick(obj: {[k: string]: any}, keys: string[]){
     }
     return res
 }
+
+export enum Topics{ emergency="Emergency"}

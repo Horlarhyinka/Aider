@@ -11,9 +11,7 @@ export const reportEmergency = catchAsyncErrors(async(req: Request, res: Respons
     const validationRes = emergencyValidator.validateEmergencyPayload(req.body)
     if(validationRes.error)return res.status(400).json({message: validationRes.error.message})
     const emergency = await EmergencyModel.create({...req.body})
-
-    //send notifications
-    
+    await emergencyService.sendBroadcast()    
     return res.status(201).json(emergency)
 })
 

@@ -1,5 +1,5 @@
 import { UserSchema } from "../models/types/user";
-import { pick } from "../utils/factory";
+import { pick, Topics } from "../utils/factory";
 import { FirebaseService, firebaseService as fbService } from "./firebase.service";
 import { Document } from "mongoose";
 
@@ -41,6 +41,16 @@ class EmergencyService {
         return this.firebaseService.sendToFirebase(path, message)
     }
 
+    subscribe(token: string){
+        return this.firebaseService.subscribeDevice(token, Topics.emergency)
+    }
+
+    sendBroadcast(){
+        return this.firebaseService.sendPushNotification(Topics.emergency, {
+            title: "Emergency Alert!!!",
+            data: "There is a medical emergency and we need your help!!!"
+        })
+    }
 }
 
 export const emergencyService = new EmergencyService()
