@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { firebaseConfig } from "./config";
+import { FIREBASE_SERVICE_ACCOUNT, firebaseConfig, firebaseServiceAccount } from "./config";
 import { getFirestore } from "firebase/firestore";
 import firebase from "firebase/compat/app";
 import admin from "firebase-admin"
@@ -17,10 +17,10 @@ export async function getFirestoreDB (){
 
 export async function getFirebaseAdmin(){
 
-var serviceAccount = require(path.resolve(__dirname, "../../fb-service-account.json"));
+// var serviceAccount = FIREBASE_SERVICE_ACCOUNT!;
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(JSON.stringify(firebaseServiceAccount))
 });
 
 return admin
