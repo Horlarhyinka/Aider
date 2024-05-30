@@ -10,7 +10,7 @@ const coordSchema = new mongoose.Schema<Coord>({
 const emergencySchema = new mongoose.Schema<EmergencySchema>({
     name: { type: String, required: true },
     description: {type: String, required: true},
-    coord: coordSchema,
+    coord: {type: coordSchema, required: true},
     active: { type: Boolean, default: true},
     remark: { type: String, }
 }, {timestamps: true})

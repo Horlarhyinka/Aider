@@ -26,3 +26,6 @@ export const login = catchAsyncErrors(async(req: Request, res: Response)=>{
         }
     return res.status(200).json({user: {...user.toObject(), password: undefined}, token: await user.generateToken()})
 })
+
+
+// UserModel.deleteMany().then(()=>{console.log("cleared")})

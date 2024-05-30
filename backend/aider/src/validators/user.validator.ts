@@ -10,7 +10,8 @@ class Validator{
             password: Joi.string().required(),
             skill: Joi.string(),
             about: Joi.string(),
-            deviceToken: Joi.string()
+            deviceToken: Joi.string(),
+            category: Joi.string().required(),
         }).validate(obj)
     }
 

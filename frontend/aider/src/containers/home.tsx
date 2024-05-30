@@ -7,12 +7,11 @@ import { stories } from "../assets/data/stories";
 import { StoryCard } from "../components/story-card";
 
 const Home = (props: HomeProps)=>{
-    console.log(props)
     return <div className="home">
             <section className="write-up1" >
                 <h2>Be the hero your neighbourhood needs.</h2>
                 <p>Empowering communities, one volunteer at a time to bridge the gap in emergency response</p>
-                <button className="cta pry-color" >Join Community</button>
+                <button onClick={()=>{window.location.assign("/register")}} className="cta pry-color" >Join Community</button>
             </section>
             <img src={MapDemo} alt="" />
             <section className="section-2" >

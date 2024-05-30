@@ -4,6 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import firebase from "firebase/compat/app";
 import admin from "firebase-admin"
 import path from "path"
+import fs from "fs"
 
 export async function getFirestoreDB (){
     try{
@@ -18,9 +19,9 @@ export async function getFirestoreDB (){
 export async function getFirebaseAdmin(){
 
 // var serviceAccount = FIREBASE_SERVICE_ACCOUNT!;
-
 admin.initializeApp({
-  credential: admin.credential.cert(JSON.stringify(firebaseServiceAccount))
+  credential: admin.credential.cert(path.resolve(__dirname, "../../fb-service-account.json")),
+//   databaseURL: "https://aider-ece4a.firebaseio.com"
 });
 
 return admin

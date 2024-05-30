@@ -1,5 +1,5 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, where, WhereFilterOp } from "firebase/firestore";
-import { getFirebaseAdmin, getFirestoreDB } from "../config/firebase.config";
+import {getFirebaseAdmin, getFirestoreDB } from "../config/firebase.config";
 import { cleanObjectIds, cleanUndefined } from "../utils/cleaners";
 import { PushMessage } from "../utils/types";
 import { getMessaging } from "firebase/messaging";

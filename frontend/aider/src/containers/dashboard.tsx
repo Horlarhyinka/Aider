@@ -16,6 +16,7 @@ export const Dashboard = ()=>{
     navigator.geolocation.getCurrentPosition((pos)=>{
         setCurr({lng: pos.coords.longitude, lat: pos.coords.latitude})
     })
+    
     return <div className="dashboard">
         <ProfileCard name={"testing Kernel"} about="I test anything testable" avatar={Avatar} />
         <div className="badges">

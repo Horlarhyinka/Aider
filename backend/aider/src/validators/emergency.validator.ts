@@ -6,7 +6,7 @@ class Validator{
         return Joi.object({
             name: Joi.string().required(),
             description: Joi.string().required(),
-            coord: Joi.object({ lng: Joi.number().min(0), lat: Joi.number().min(0)}),
+            coord: Joi.object({ lng: Joi.number().min(0).required(), lat: Joi.number().min(0).required()}).required(),
         }).validate(obj)
     }
 
