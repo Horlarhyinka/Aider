@@ -1,16 +1,14 @@
-import firebase, {initializeApp} from "firebase/app"
+import {initializeApp} from "firebase/app"
 import { getMessaging, getToken } from "firebase/messaging";
 import { firebaseConfig } from "./config";
+import { getFirestore } from "firebase/firestore";
 
 const vapidKey = import.meta.env.VITE_APP_VAPID_PUBLIC_KEY!
 
-console.log(firebaseConfig)
-
-const app = initializeApp(firebaseConfig)
-
-const messaging = getMessaging(app)
 
 export async function getDeviceToken() {
+const app = initializeApp(firebaseConfig)
+const messaging = getMessaging(app)
     return getToken(messaging, {vapidKey})
     .then(async(currentToken?: string)=>{
         if(!currentToken){
@@ -25,4 +23,15 @@ export async function getDeviceToken() {
             return currentToken
         }
     })
+}
+
+
+export async function getFirestoreDB (){
+    try{
+        const app = initializeApp(firebaseConfig)
+        return getFirestore(app)
+    }catch(err){
+        console.log(err)
+        process.exit(1)
+    }
 }

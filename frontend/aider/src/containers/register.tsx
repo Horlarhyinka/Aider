@@ -33,12 +33,12 @@ export const Register = () =>{
             }
             const { token, user } = response.data
             window.localStorage.setItem(tokenName, token) 
-            window.localStorage.setItem(user, JSON.stringify(user))
-            // if(window.location.href.includes("register")){
-            //     window.location.assign("/dashboard")
-            // }else{
-            //     window.location.reload()
-            // }
+            window.localStorage.setItem("user", JSON.stringify(user))
+            if(window.location.href.includes("register")){
+                window.location.assign("/dashboard")
+            }else{
+                window.location.reload()
+            }
         } catch (error: any) {
             console.log("authentication error", error.response?.data.message, {error})
         }

@@ -30,10 +30,10 @@ function App() {
     <Routes>
 
     <Route path='/' element={<Home />} />
-    <Route path='/dashboard' element={<AuthHOC element={<Dashboard/>} />} />
-    <Route path="/emergencies" element={<AuthHOC element={<Emergencies />} />} />
-    <Route path='/respond/:id' element={<AuthHOC element={<Respond />} />} />
-    <Route path='/emergencies/:id' element={<AuthHOC element={<EmergencyPreview />} />} />
+    <Route path='/dashboard' element={<Dashboard/>} />
+    <Route path="/emergencies" element={<Emergencies />} />
+    <Route path='/respond/:id' element={<Respond />} />
+    <Route path='/emergencies/:id' element={<EmergencyPreview />} />
     <Route path='/login' element={<Login />} />
     <Route path='/register' element={<Register/>} />
     <Route path='/report' element={<Report/>} />
