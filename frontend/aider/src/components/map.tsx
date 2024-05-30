@@ -17,6 +17,10 @@ export const Map = (props: MapProp)=>{
           zoom={10}
         onGoogleApiLoaded={({map, maps})=>{
             addMarker(map, maps, props.curr, "<p>my location</p>")
+            props.target && addMarker(map, maps, props.target, `<p style="color: black;" >Target location</p>`, false)
+            props.points.forEach(p=>{
+                addMarker(map, maps, p.coord, `<h1 style="color: black;" >Responder</h1><p style="color: black;" >${p.name}</p>`)
+            })
         }}
 
         key={apiKey}

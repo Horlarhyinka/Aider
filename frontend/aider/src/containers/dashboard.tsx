@@ -1,5 +1,4 @@
 import { ProfileCard } from "../components/profile-card"
-import Avatar from "../assets/img/jaden.jpeg"
 import { BadgeCard } from "../components/badge-card"
 import { Map } from "../components/map"
 import { useState } from "react"
@@ -18,10 +17,10 @@ export const Dashboard = AuthHOC(()=>{
         setCurr({lng: pos.coords.longitude, lat: pos.coords.latitude})
     })
 
-    const user = getUser()
+    const user = getUser()!
 
     return <div className="dashboard">
-        <ProfileCard name={user.firstName + " " + user.lastName} about={getAbout()} avatar={user.avatar || PHImg} />
+        <ProfileCard name={user.firstName + " " + user.lastName} about={getAbout()!} avatar={user.avatar || PHImg} />
         <div className="badges">
         <BadgeCard count={14} title="First responder Badge" />
         <BadgeCard count={14} title="Mitigation Badge" />

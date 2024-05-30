@@ -1,6 +1,6 @@
 import React from "react";
 import { Login } from "../containers/login";
-import { getAuthToken, tokenName } from "./factory";
+import { getAuthToken } from "./factory";
 
 
 export const AuthHOC = (element: ()=>React.JSX.Element) => {

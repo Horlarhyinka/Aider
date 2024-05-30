@@ -1,3 +1,5 @@
+import { User } from "../containers/types/others/user"
+
 export interface Coordinate {
     lng: number
     lat: number
@@ -28,13 +30,12 @@ export const authRequest = async(fn: Function)=>{
         return await fn()
     }catch(err: any){
         if(err.response?.status === 401){
-            window.localStorage.removeItem(tokenName)
-            window.localStorage.removeItem("user")
+            logout()
         }
     }
 }
 
-export const getUser = () =>{
+export const getUser = (): User | null =>{
     const raw = window.localStorage.getItem("user")
     if(!raw)return null
     return JSON.parse(raw)
@@ -53,6 +54,7 @@ export const logout = ()=>{
 
 export const getAbout = () =>{
     const user = getUser()
+    if(!user)return logout()
     if(user.about)return user.about
     if(user.category === "professional"){
         return "An experienced medical professional and a volunteer of the Aider community"
@@ -62,5 +64,29 @@ export const getAbout = () =>{
         return "Have medical training experience and a proud member of the Aider Community"
     }else{
         return "A proud member and volunteer of the Aider community"
+    }
+}
+
+const rVariable = "Responding"
+
+export const getResponding = (): string[] =>{
+    const raw = localStorage.getItem(rVariable)
+    if(!raw)return []
+    return JSON.parse(raw)
+}
+
+export const setResponding = (remoteId: string): string[] =>{
+    const prev = getResponding()
+    if(prev.includes(remoteId))return prev
+    const curr = [...prev, remoteId]
+    localStorage.setItem(rVariable, JSON.stringify(curr))
+    return curr
+}
+
+export const popResponding = (remoteId: string)=>{
+    const prev = getResponding()
+    if(prev){
+        const curr = prev.filter(id=>id!==remoteId)
+        localStorage.setItem(rVariable, JSON.stringify(curr))
     }
 }

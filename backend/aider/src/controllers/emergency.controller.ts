@@ -35,8 +35,9 @@ export const respondToEmergency = catchAsyncErrors(async(req: AuthRequest, res: 
     if(validateRes.error)return res.status(400).json({message: validateRes.error.message})
     const emergency = await EmergencyModel.findById(id)
     if(!emergency)return res.status(404).json({message: "emergency not found"})
-    await emergencyService.addResponder((emergency._id as ObjectId).toString(), {...req.user.toObject()})
-    return res.status(200).json(emergency)
+    const remoteDoc = await emergencyService.addResponder((emergency._id as ObjectId).toString(), {...req.user.toObject(), coord: req.body.coord})
+    const resObj = remoteDoc[0]
+    return res.status(200).json(resObj)
 })
 
 export const cancelEmergency = catchAsyncErrors(async(req: Request, res: Response)=>{
@@ -69,3 +70,4 @@ export const getChats = catchAsyncErrors(async(req: Request, res: Response)=>{
     return res.status(200).json(chats)
 })
 
+// EmergencyModel.deleteMany({}).then(res=>{console.log("deleted...")})

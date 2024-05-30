@@ -10,10 +10,8 @@ import { Report } from './containers/report'
 import { ReportMade } from './containers/ReportMade'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ResponderPreview } from './containers/ResponderPreview'
-import { EmergencyPreview } from './containers/emergencyPreview'
 
 import "./styles/index.css"
-import { AuthHOC } from './utils/HOC'
 import { Responders } from './containers/responders'
 import { register } from './serviceWorkerRegistration'
 
@@ -32,8 +30,8 @@ function App() {
     <Route path='/' element={<Home />} />
     <Route path='/dashboard' element={<Dashboard/>} />
     <Route path="/emergencies" element={<Emergencies />} />
-    <Route path='/respond/:id' element={<Respond />} />
-    <Route path='/emergencies/:id' element={<EmergencyPreview />} />
+    <Route path='/emergencies/:id' element={<Respond />} />
+    {/* <Route path='/emergencies/:id' element={<EmergencyPreview />} /> */}
     <Route path='/login' element={<Login />} />
     <Route path='/register' element={<Register/>} />
     <Route path='/report' element={<Report/>} />

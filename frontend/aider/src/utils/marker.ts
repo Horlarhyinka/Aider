@@ -7,7 +7,9 @@ export const marker_path = "M12 0C7 0 3 4 3 9c0 5 9 15 9 15s9-10 9-15c0-5-4-9-9-
 
 export const addMarker = (map: any, maps: any, position: Coordinate, template: React.JSX.Element | string, bounce=false)=>{
     const marker = new maps.Marker({ position, map, clickable: true })
-    marker.setAnimation(bounce?maps.Animation.BOUNCE:maps.Animation.BOUNCE)
+    if(bounce){
+        marker.setAnimation(maps.Animation.BOUNCE)
+    }
     // marker.setIcon({fillColor: "green", path: marker_path, strokeColor: "white", fillOpacity: 1})
     const infoWindow = new maps.InfoWindow()
     infoWindow.setContent(template)
