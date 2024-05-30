@@ -7,7 +7,7 @@ export interface UserSchema{
     password: string
     skill: string
     about: string
-
+    category: string
     checkPassword: (text: string)=>Promise<boolean>
     generateToken: ()=>Promise<string>
 }

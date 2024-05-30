@@ -20,3 +20,16 @@ function toRad(Value: number)
 {
     return Value * Math.PI / 180;
 }
+
+export const tokenName = "AUTH_TOKEN"
+
+export const authRequest = async(fn: Function)=>{
+    try{
+        return await fn()
+    }catch(err: any){
+        if(err.response?.status === 401){
+            window.localStorage.removeItem(tokenName)
+            window.localStorage.removeItem("user")
+        }
+    }
+}

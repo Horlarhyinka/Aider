@@ -9,7 +9,9 @@ class Validator{
             email: Joi.string().required(),
             password: Joi.string().required(),
             skill: Joi.string(),
-            about: Joi.string()
+            about: Joi.string(),
+            deviceToken: Joi.string(),
+            category: Joi.string().required(),
         }).validate(obj)
     }
 
@@ -17,9 +19,9 @@ class Validator{
         return Joi.object({
             email: Joi.string().required(),
             password: Joi.string().required(),
+            deviceToken: Joi.string()
         }).validate(obj)
     }
-
 }
 
 export const userValidator =  new Validator()

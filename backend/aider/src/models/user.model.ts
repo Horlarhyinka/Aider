@@ -8,9 +8,10 @@ import { mailRegexp } from "../utils/regexp";
 const userSchema = new mongoose.Schema<UserSchema>({
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
-    email: {type: String, required: true, match: mailRegexp},
+    email: {type: String, required: true, match: mailRegexp, unique: true},
     password: { type: String, required: true, minlength: 6},
-    about: {type: String, }
+    about: {type: String, },
+    category: {type: String, required: true},
 }, {timestamps: true})
 
 

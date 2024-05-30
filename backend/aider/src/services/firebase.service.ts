@@ -1,10 +1,11 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, where, WhereFilterOp } from "firebase/firestore";
-import { getFirestoreDB } from "../config/firebase.config";
+import {getFirebaseAdmin, getFirestoreDB } from "../config/firebase.config";
 import { cleanObjectIds, cleanUndefined } from "../utils/cleaners";
+import { PushMessage } from "../utils/types";
+import { getMessaging } from "firebase/messaging";
 
 
 export class FirebaseService {
-
 
 
     async sendToFirebase(path: string, data: object){
@@ -46,6 +47,35 @@ export class FirebaseService {
         }
     }
 
+    async subscribeDevice(token: string | string[], topic: string){
+        try {
+            const admin = await getFirebaseAdmin()
+            await admin.messaging().subscribeToTopic(token, topic)
+            return true  
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    }
+
+    async sendPushNotification(topic: string, data: PushMessage){
+        try {
+            const admin = await getFirebaseAdmin()
+            const payload = {
+                notification: data,
+                data: {data: data.data}
+            }
+            const response = await admin.messaging().sendToTopic(topic, {
+                notification: {title: data.title},
+                data: {
+                    data: data.data
+                }
+            })
+            console.log("push message sent successfully", response.messageId)
+        } catch (error) {
+            console.log("failed to send push notification:", error)
+        }
+    }
 }
 
 export const firebaseService = new FirebaseService()

@@ -10,3 +10,7 @@ export interface AuthRequest extends Request{
     user: Document<UserSchema>
 }
 
+export interface PushMessage{
+    title: string
+    data: string
+}
