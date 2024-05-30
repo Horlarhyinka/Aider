@@ -3,6 +3,6 @@ import { ResponderProp } from "./responderProp";
 
 export interface MapProp{
     curr: Coordinate
-    points: ResponderProp[],
+    points: (any & {coord: Coordinate})[],
     target?: Coordinate
 }
