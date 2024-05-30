@@ -17,7 +17,7 @@ export const ChatWindow = ()=>{
             <ChatIcon handleClick={handleToggleChat} count={1} />
             <div className="chat-frame">
                 <section className="messages">
-                    {messages.map(message=><div className="msg-wrapper" ><MessageCard message={message} /></div>)}
+                    {messages.map((message, i)=><div className="msg-wrapper" key={i}  ><MessageCard message={message}/></div>)}
                 </section>
                 <section className="input-section">
                 <div className="chat-input-wrapper">

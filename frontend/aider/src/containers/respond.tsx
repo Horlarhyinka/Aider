@@ -7,7 +7,7 @@ import { AuthHOC } from "../utils/HOC"
 import { useEffect, useState } from "react"
 import { Emergency } from "./types/others/emergency"
 import { useParams } from "react-router-dom"
-import { authRequest, Coordinate, getAuthToken, getUser } from "../utils/factory"
+import { authRequest, Coordinate, getAuthToken, getResponding, getUser, setResponding } from "../utils/factory"
 import axios from "axios"
 
 const apiBaseUrl = import.meta.env.VITE_APP_API_BASE_URL || "http://localhost:8001/api/v1"
@@ -27,11 +27,13 @@ export const Respond = AuthHOC(()=>{
         authRequest(()=>axios.get(url, {headers: { Authorization: `Bearer ${getAuthToken()}`}}))
         .then(res=>{
             setEmergency(res.data)
+        if(getResponding(id!)){
+            setIsResponding(true)
+        }
         })
         .catch((err: any)=>{
             alert(err.response?.data)
         })
-        //listen on firebase
     },[id])
 
         navigator.geolocation.getCurrentPosition((pos)=>{
@@ -39,19 +41,20 @@ export const Respond = AuthHOC(()=>{
         })
 
     async function handleRespondNow(){
+        if(getResponding(id!))return
         if(!coord){
             return
         }
         
         authRequest(()=>axios.post(url + "/responders", {coord}, {headers: {Authorization: `Bearer ${getAuthToken()}`}}))
         .then(res=>{
-            setIsResponding(res.data.remoteId)
+            setResponding(id!, res.data.remoteId)
+            setIsResponding(true)
             setEmergency(res.data)
         })
         .catch(err=>{
             console.log({err}, err.response?.data)
         })
-
 
         
     }
@@ -61,8 +64,8 @@ export const Respond = AuthHOC(()=>{
         
         <button
         onClick={()=>{handleRespondNow()}}
-         className="cta" >respond now <Icon className="icn" icon={"icon-park-twotone:alarm"} /></button>
+         className={`cta ${isResponding && "rs"}`} >respond now <Icon className="icn" icon={"icon-park-twotone:alarm"} /></button>
         <ChatWindow />
-        <Map curr={{lng: 1.11, lat: 12.14}} target={emergency.coord} points={[]} />
+        {/* <Map curr={{lng: 1.11, lat: 12.14}} target={emergency.coord} points={[]} /> */}
     </div>:<div className="null spinner" >loading emergency information...</div>
 })

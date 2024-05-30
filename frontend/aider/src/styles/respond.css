@@ -28,3 +28,7 @@
     margin: 25px 0px 20px;
     background-color: #FF0000;
 }
+
+.respond .cta.rs{
+    background-color: rgb(78, 78, 78);
+}

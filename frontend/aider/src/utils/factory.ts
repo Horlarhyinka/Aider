@@ -69,24 +69,32 @@ export const getAbout = () =>{
 
 const rVariable = "Responding"
 
-export const getResponding = (): string[] =>{
+export const getRespondings = (): {[id: string]: string} =>{
     const raw = localStorage.getItem(rVariable)
-    if(!raw)return []
+    if(!raw)return {}
     return JSON.parse(raw)
 }
 
-export const setResponding = (remoteId: string): string[] =>{
-    const prev = getResponding()
-    if(prev.includes(remoteId))return prev
-    const curr = [...prev, remoteId]
-    localStorage.setItem(rVariable, JSON.stringify(curr))
-    return curr
+export const getResponding = (id: string): (string | null) =>{
+    const raw = localStorage.getItem(rVariable)
+    if(!raw)return null
+    const parsed = JSON.parse(raw)
+    return parsed[id]
 }
 
-export const popResponding = (remoteId: string)=>{
-    const prev = getResponding()
+export const setResponding = (id: string, remoteId: string): string =>{
+    const prev = getRespondings()
+    if(prev[id])return remoteId
+    const curr = {...prev, [id]: remoteId}
+    localStorage.setItem(rVariable, JSON.stringify(curr))
+    return remoteId
+}
+
+export const popResponding = (id: string)=>{
+    const prev = getRespondings()
     if(prev){
-        const curr = prev.filter(id=>id!==remoteId)
+        const curr = {...prev}
+        delete curr[id]
         localStorage.setItem(rVariable, JSON.stringify(curr))
     }
 }
