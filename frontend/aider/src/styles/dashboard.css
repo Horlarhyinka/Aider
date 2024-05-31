@@ -11,3 +11,8 @@
     /* margin-top: 45px; */
 }
 
+
+.dashboard{
+    width: 100%;
+    box-sizing: border-box;
+}

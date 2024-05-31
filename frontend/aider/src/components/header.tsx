@@ -9,10 +9,10 @@ export const Header = (prop: {isAuthenticated: boolean})=>{
             <h1>AIDER</h1>
         </div>
         <ul className="links">
-            <a href=""><li>Home</li></a>
-            <a href=""><li>Dashboard</li></a>
-            <a href=""><li>Emergencies</li></a>
-            <a href=""><li>Badges</li></a>
+            <a href="/"><li>Home</li></a>
+            <a href="/dashboard"><li>Dashboard</li></a>
+            <a href="/emergencies"><li>Emergencies</li></a>
+            {/* <a href=""><li>Badges</li></a> */}
         </ul>
     </div>
 }

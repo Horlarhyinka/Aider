@@ -24,7 +24,7 @@
 .emergency-card .map-wrapper{
     height: 120px;
     border-radius: 12px;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 100%;
 }
 

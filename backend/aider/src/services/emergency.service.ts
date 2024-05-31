@@ -9,11 +9,13 @@ class EmergencyService {
         private firebaseService: FirebaseService  = fbService,
     ){}
 
-    addResponder(emergencyId: string, user: Document<UserSchema>){
+    async addResponder(emergencyId: string, user: Document<UserSchema>){
         const path = `emergencies/${emergencyId}/responders`
         const cp = {...user} as any
         delete cp["password"]
-        return this.firebaseService.sendToFirebase(path, {...pick(user, Object.keys(cp))})
+        await this.firebaseService.sendToFirebase(path, {...pick(user, Object.keys(cp))})
+        const responder = await this.firebaseService.queryFirebase(path, {_id: user._id?.toString()})
+        return responder
     }
 
     removeResponder(emergencyId: string, userRemoteId: string){

@@ -11,6 +11,10 @@ body{
     color: white;
 }
 
+.null{
+  margin-top: 35px;
+  color: rgb(194, 194, 194);
+}
 
 .cta{
     border-radius: 5px;

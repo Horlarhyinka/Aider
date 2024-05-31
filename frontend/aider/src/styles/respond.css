@@ -28,3 +28,20 @@
     margin: 25px 0px 20px;
     background-color: #FF0000;
 }
+
+.respond .cta.rs{
+    background-color: #141414;
+    position: relative;
+}
+
+.respond .cta.rs .icn{
+    color: #5eff23;
+    font-size: 24px;
+    position: relative;
+    top: 5px;
+}
+
+.respond .cta.rs.on-scene{
+    color: #3cdf00;
+    font-weight: 600;
+}
