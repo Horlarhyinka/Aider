@@ -98,3 +98,11 @@ export const popResponding = (id: string)=>{
         localStorage.setItem(rVariable, JSON.stringify(curr))
     }
 }
+
+export const setReport = (id: string)=>{
+    localStorage.setItem("report", id)
+}
+
+export const getReport = ()=>{
+    return localStorage.getItem("report")
+}
