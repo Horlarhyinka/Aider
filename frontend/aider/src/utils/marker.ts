@@ -16,5 +16,5 @@ export const addMarker = (map: any, maps: any, position: Coordinate, template: R
     marker.addListener("click", (e: any)=>{
         infoWindow.open(map, marker)
         })
-
+    return marker
 }

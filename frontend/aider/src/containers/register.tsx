@@ -24,9 +24,20 @@ export const Register = () =>{
         try {
             const formData = new FormData(formRef.current!)
             const data = Object.fromEntries(formData.entries())
-            const deviceToken = await getDeviceToken()
-            console.log({deviceToken})
-            const response = await axios.post(url, {...data, deviceToken})
+            let deviceToken = ""
+            try{
+                const res = await getDeviceToken()
+                if(res){
+                    deviceToken = res
+                }
+            }catch(err){
+
+            }
+            const payload = {...data, }
+            if(deviceToken && deviceToken.length){
+                payload.deviceToken = deviceToken
+            }
+            const response = await axios.post(url, payload)
             if(response.status !== 201){
                 alert(response.data.message)
                 return

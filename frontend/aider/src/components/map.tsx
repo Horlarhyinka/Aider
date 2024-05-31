@@ -2,10 +2,28 @@ import MapComponent from "google-map-react"
 import { MapProp } from "./types/mapProp"
 import { addMarker } from "../utils/marker"
 import "../styles/map.css"
+import { useEffect, useState } from "react"
 
 const apiKey = import.meta.env.VITE_APP_MAP_API_KEY
 
 export const Map = (props: MapProp)=>{
+
+    const [mapRef, setMapRef] = useState<any>()
+    const [mapsRef, setMapsRef] = useState<any>()
+    const [markers, setMarkers] = useState<any[]>([])
+
+    useEffect(()=>{
+        markers.forEach(marker=>marker.setMap(null))
+        if(mapRef && mapsRef){
+            const markersList = []
+            markersList.push(addMarker(mapRef, mapsRef, props.curr, "<p>my location</p>"))
+            props.target && markersList.push(addMarker(mapRef, mapsRef, props.target, `<p style="color: black;" >Target location</p>`, false))
+            props.points.forEach(p=>{
+                markersList.push(addMarker(mapRef, mapsRef, p.coord, `<h1 style="color: black;" >Responder</h1><p style="color: black;" >${p.firstName} ${p.lastName}</p>`))
+            })
+            setMarkers(markersList)
+        }
+    }, [mapRef, mapsRef, props.curr, props.points, props.target])
 
     return <div className="map-wrapper">
         <MapComponent 
@@ -16,11 +34,9 @@ export const Map = (props: MapProp)=>{
           }}
           zoom={10}
         onGoogleApiLoaded={({map, maps})=>{
-            addMarker(map, maps, props.curr, "<p>my location</p>")
-            props.target && addMarker(map, maps, props.target, `<p style="color: black;" >Target location</p>`, false)
-            props.points.forEach(p=>{
-                addMarker(map, maps, p.coord, `<h1 style="color: black;" >Responder</h1><p style="color: black;" >${p.name}</p>`)
-            })
+            
+            setMapRef(map)
+            setMapsRef(maps)
         }}
 
         key={apiKey}
