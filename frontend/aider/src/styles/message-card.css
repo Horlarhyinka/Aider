@@ -40,11 +40,11 @@
 }
 
 .message-card .message-content{
-    padding: 24px 12px;
     text-align: left;
     color: white;
     background-color: #171717;
     margin-top: 0px;
+    position: absolute;
     border-radius: 0px 12px 12px 12px;
     font-size: 14px;
     display: inline-block;

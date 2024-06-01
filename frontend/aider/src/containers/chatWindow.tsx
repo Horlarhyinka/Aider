@@ -64,7 +64,7 @@ export const ChatWindow = () => {
     const newMessage = {
       body: messageText,
       emergencyId,
-      userId: user._id,
+      userId: user ? user._id : '1'
     };
 
     try {
@@ -80,11 +80,9 @@ export const ChatWindow = () => {
     console.log("clicked...");
     setWindowOpen(!windowOpen);
   };
-  const handleKeyPress = (e: any) => {
-    if (e.key === "Enter") {
+  const handleKeyPress = () => {
       sendMessage();
-    }
-  };
+    };
 
   return (
     <div className={`chat-window ${!windowOpen ? "closed" : ""}`}>
@@ -109,7 +107,7 @@ export const ChatWindow = () => {
             <Icon
               className="icn"
               icon="ion:send"
-              onClick={(e: any) => handleKeyPress(e)}
+              onClick={ handleKeyPress}
             />
           </div>
         </section>

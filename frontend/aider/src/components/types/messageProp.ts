@@ -3,5 +3,5 @@ export interface MessageProp{
         name: string,
         avatar: string
     },
-    content: string
+    body: string
 }
