@@ -17,7 +17,7 @@ export const Report = (props: ReportProps) =>{
         const formData = new FormData(formRef.current!)
         const data = Object.fromEntries(formData.entries())
 
-        const response = await axios.post(apiBaseUrl+"/reports", {...data, coord})
+        const response = await axios.post(apiBaseUrl+"/emergencies", {...data, coord})
         if(response.status.toString().startsWith("2")){
             setReport(response.data._id)
             window.location.assign("/report-made")
@@ -32,8 +32,13 @@ export const Report = (props: ReportProps) =>{
         </div>
         <div className="field-wrapper">
             <label htmlFor="report" >describe your emergency <span className="danger" >*</span></label>
-            <textarea required name="report" ></textarea>
+            <textarea required name="description" ></textarea>
         </div>
-        <button className="cta pry-color-light">Report emergency</button>
+        <button
+        onClick={(e)=>{
+            e.preventDefault()
+            handleNewReport()
+        }}
+         className="cta pry-color-light">Report emergency</button>
     </form>
 }

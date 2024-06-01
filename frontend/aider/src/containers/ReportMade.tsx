@@ -2,11 +2,18 @@ import { ReportMadeProps } from "./types/props/reportMadeProps";
 import Kit from "../assets/img/kit.png"
 
 import '../styles/report-made.css';
-import { ChatIcon } from "../components/chat-icon";
 import { ChatWindow } from "./chatWindow";
+import { getReport } from "../utils/factory";
 
 
 export const ReportMade = (props: ReportMadeProps) =>{
+
+    setTimeout(()=>{
+        const report = getReport()
+        if(report){
+            window.location.assign(`/responders`)
+        }
+    }, 5000)
 
     return <div className="report-made">
         <h4>Help is on the way</h4>
