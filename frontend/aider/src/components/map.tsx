@@ -16,10 +16,10 @@ export const Map = (props: MapProp)=>{
         markers.forEach(marker=>marker.setMap(null))
         if(mapRef && mapsRef){
             const markersList = []
-            markersList.push(addMarker(mapRef, mapsRef, props.curr, "<p>my location</p>"))
-            props.target && markersList.push(addMarker(mapRef, mapsRef, props.target, `<p style="color: black;" >Target location</p>`, false))
+            markersList.push(addMarker(mapRef, mapsRef, props.curr, "<p>my location</p>", "curr"))
+            props.target && markersList.push(addMarker(mapRef, mapsRef, props.target, `<p style="color: black;" >Target location</p>`, "target"))
             props.points.forEach(p=>{
-                markersList.push(addMarker(mapRef, mapsRef, p.coord, `<h1 style="color: black;" >Responder</h1><p style="color: black;" >${p.firstName} ${p.lastName}</p>`))
+                markersList.push(addMarker(mapRef, mapsRef, p.coord, `<h1 style="color: black;" >Responder</h1><p style="color: black;" >${p.firstName} ${p.lastName}</p>`, "responder"))
             })
             setMarkers(markersList)
         }

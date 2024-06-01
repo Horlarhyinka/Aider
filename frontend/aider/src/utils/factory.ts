@@ -6,6 +6,7 @@ export interface Coordinate {
 }
 
 export function getDistance(l1: Coordinate, l2:Coordinate){
+    // console.log({l1, l2})
     const R = 6371
     const dLng = toRad(l2.lng-l1.lng)
     const dLat = toRad(l2.lat - l1.lat)
@@ -67,6 +68,19 @@ export const getAbout = () =>{
     }
 }
 
+export const aboutFromCat = (category?: string)=>{
+    if(category === "professional"){
+        return "An experienced medical professional and a volunteer of the Aider community"
+    }else if(category === "formal"){
+        return "Formally trained medical personnel and a proud member/volunteer of the Aider communtiy"
+    }else if(category === "informal"){
+        return "Have medical training experience and a proud member of the Aider Community"
+    }else{
+        return "A proud member and volunteer of the Aider community"
+    }
+}
+
+
 const rVariable = "Responding"
 
 export const getRespondings = (): {[id: string]: string} =>{
@@ -106,3 +120,4 @@ export const setReport = (id: string)=>{
 export const getReport = ()=>{
     return localStorage.getItem("report")
 }
+
