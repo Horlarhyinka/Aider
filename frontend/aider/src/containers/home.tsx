@@ -16,7 +16,7 @@ const Home = (props: HomeProps)=>{
             <img src={MapDemo} alt="" />
             <section className="section-2" >
                 <h4>Save a life today, report an <span className="danger">emergency</span>.</h4>
-                <button className="cta pry-color-light">report emergency</button>
+                <button onClick={()=>{window.location.assign("/report")}}  className="cta pry-color-light">report emergency</button>
             </section>
 
             <section className="section-3">
