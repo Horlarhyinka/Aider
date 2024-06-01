@@ -9,6 +9,27 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import { collection, doc, getDocs, onSnapshot, addDoc } from 'firebase/firestore'; // Import Firestore functions
 
+export const ChatWindow = ()=>{
+    const [windowOpen, setWindowOpen] = useState<boolean>(false)
+
+    const handleToggleChat = ()=>{
+        console.log("clicked...")
+        setWindowOpen(!windowOpen)
+    }
+    return <div className={`chat-window ${!windowOpen?"closed": ""}`}>
+            <ChatIcon handleClick={handleToggleChat} count={1} />
+            <div className="chat-frame">
+                <section className="messages">
+                    {messages.map((message, i)=><div className="msg-wrapper" key={i}  ><MessageCard message={message}/></div>)}
+                </section>
+                <section className="input-section">
+                <div className="chat-input-wrapper">
+                    <input placeholder="type your message" type="text" className="message-input" />
+                    <Icon className="icn" icon="ion:send" />
+                </div>
+                </section>
+            </div>
+        </div>
 
 const firebaseConfig = {
   apiKey: "AIzaSyAjjQGVJJmRhg37me6TRzoy4hhnE6pg_N8",

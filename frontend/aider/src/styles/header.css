@@ -45,8 +45,55 @@
     margin: 0px 12px;
 }
 
+.header .menu.icn{
+    font-size: 34px;
+    /* border: 3px solid rgb(255, 255, 255); */
+    border-radius: 50%;
+    padding: 5px;
+    position: relative;
+    right: -75px;
+    top: 12px;
+    display: none;
+}
+
+.nav-links{
+    width: 100;
+    box-sizing: border-box;
+    height: 100vh;
+    position: absolute;
+    top: 65px;
+    left: 0px;
+    z-index: 999;
+    background-color: black;
+    width: 100%;
+    list-style: none;
+    padding-top: 35px;
+    display: none;
+}
+
+.nav-links li{
+    padding: 12px ;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.nav-links a{
+    text-decoration: none;
+}
+
+
 @media screen and (max-width: 830px){
     .links{
         display: none;
+    }
+
+    .header .menu.icn{
+        display: inline-block;
+    }
+
+    .nav-links{
+        display: block;
     }
 }

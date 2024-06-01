@@ -2,8 +2,9 @@ import { Coordinate } from "../../utils/factory"
 
 
 export interface ResponderProp{
-    name: string
+    firstName: string
+    lastName: string
     coord: Coordinate,
     img?: string,
-    id: number | string
+    _id: string
 }
