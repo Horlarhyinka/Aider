@@ -1,5 +1,6 @@
 import { ChatIcon } from "../components/chat-icon";
 import { Icon } from "@iconify/react";
+import axios from "axios";
 
 import "../styles/chat-window.css";
 // import { messages } from "../assets/data/messages";
@@ -13,9 +14,10 @@ import {
   getDocs,
   onSnapshot,
   addDoc,
-  Timestamp
+  Timestamp,
 } from "firebase/firestore"; // Import Firestore functions
 import { useEffect } from "react";
+import { getUser } from "../utils/factory"
 
 const firebaseConfig = {
   apiKey: "AIzaSyAjjQGVJJmRhg37me6TRzoy4hhnE6pg_N8",
@@ -37,40 +39,53 @@ export const ChatWindow = () => {
   const [messages, setMessages] = useState([]);
   const [messageText, setMessageText] = useState("");
   const emergencyId = "1"; // From the url
+  const user = getUser()
 
-  const messagesRef = collection(
-    doc(db, "emergencies", emergencyId),
-    "messages"
-  );
+  const sendMessageApiUrl =
+    import.meta.env.VITE_APP_API_BOT_URL || "http://localhost:3000/api/chats";
+
+  const messagesRef = collection(doc(db, "emergencies", emergencyId), "chats");
 
   useEffect(() => {
-    const unsubscribe = getDocs(messagesRef).onSnapshot((snapshot) => {
-      const newMessages = snapshot.docs.map((doc) => ({
+    const unsubscribe = onSnapshot(messagesRef, (snapshot: any) => {
+      const newMessages = snapshot.docs.map((doc: any) => ({
         ...doc.data(),
         id: doc.id,
       }));
       setMessages(newMessages);
     });
 
-    return () => unsubscribe(); // Cleanup function for real-time updates
+    return () => unsubscribe();
   }, [messagesRef]);
 
   const sendMessage = async () => {
     if (!messageText) return;
 
     const newMessage = {
-      text: messageText,
-      timestamp: Timestamp.now(),
+      body: messageText,
+      emergencyId,
+      userId: user._id,
     };
 
-    await addDoc(messagesRef, newMessage);
-    setMessageText("");
+    try {
+      const response = await axios.post(sendMessageApiUrl, newMessage);
+      console.log("Message sent successfully:", response.data); // Handle response data (optional)
+      setMessageText("");
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
   };
 
   const handleToggleChat = () => {
     console.log("clicked...");
     setWindowOpen(!windowOpen);
   };
+  const handleKeyPress = (e: any) => {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  };
+
   return (
     <div className={`chat-window ${!windowOpen ? "closed" : ""}`}>
       <ChatIcon handleClick={handleToggleChat} count={1} />
@@ -88,8 +103,14 @@ export const ChatWindow = () => {
               placeholder="type your message"
               type="text"
               className="message-input"
+              value={messageText}
+              onChange={(e) => setMessageText(e.target.value)}
             />
-            <Icon className="icn" icon="ion:send" />
+            <Icon
+              className="icn"
+              icon="ion:send"
+              onClick={(e: any) => handleKeyPress(e)}
+            />
           </div>
         </section>
       </div>
