@@ -11,14 +11,10 @@ const chatbot = async (req, res) => {
   const isTagged = checkTag(body);
 
   if (isTagged) {
-    await chat.postMessage(body);
-    const response = await chat.generateResponse(body.userId, body.body);
+    const response = await chat.generateResponse(body);
     return res.status(201).json(response);
   } else {
-    const response = await chat.postMessage({
-      userId: body.userId,
-      body: body.body,
-    });
+    const response = await chat.postMessage(body);
 
     return res.status(201).json(response);
   }

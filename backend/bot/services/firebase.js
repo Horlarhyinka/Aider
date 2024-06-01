@@ -15,8 +15,9 @@ class FB{
  * @param { object } data 
  * @returns { any }
  */
-    async createOne(collectionName, data){
-        return addDoc(collection(this.db, collectionName), data)
+    async createOne(id, data){
+        const emergencies = doc(this.db, `emergencies/${id}`)
+        return addDoc(collection(emergencies, "chats"), data)
     }
 
     /**
@@ -39,27 +40,27 @@ class FB{
      * @returns 
      */
 
-    getById(collectionName, id){
-        return getDoc(doc(this.db,`${collectionName}/${id}`))
+    getById(emergency, id){
+        return getDoc(doc(this.db,`emergencies/${emergency}/chats/${id}`))
     }
 
-    /**
-     * 
-     * @param {string} collectionName 
-     * @param { string } id 
-     * @param { (object)=>Promise<any>} func 
-     */
-    async updateOne(collectionName, id, func){
-        const target = await this.getById(collectionName, id)
-        if(!target)return;
-        const docRef = doc(this.db, `/${collectionName}/${id}`)
-        const update = await func({...target.data(), id: target.id})
-        return updateDoc(docRef, update)
-    }
+    // /**
+    //  * 
+    //  * @param {string} collectionName 
+    //  * @param { string } id 
+    //  * @param { (object)=>Promise<any>} func 
+    //  */
+    // async updateOne(collectionName, id, func){
+    //     const target = await this.getById(collectionName, id)
+    //     if(!target)return;
+    //     const docRef = doc(this.db, `/${collectionName}/${id}`)
+    //     const update = await func({...target.data(), id: target.id})
+    //     return updateDoc(docRef, update)
+    // }
 
-    deleteOne(collectionName, id){
-        return deleteDoc(collection(this.db,`${collectionName}/${id}`))
-    }
+    // deleteOne(collectionName, id){
+    //     return deleteDoc(collection(this.db,`${collectionName}/${id}`))
+    // }
 
 }
 
