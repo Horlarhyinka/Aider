@@ -28,19 +28,20 @@ class AI {
     this.getSafetySettings = () => ({ safetySettings });
     this.ai = new GoogleGenerativeAI(config.gemini.apiKey);
     this.prompt =
-      "You will be an emergency assistant giving users on Aider, tips on how to handle emergencies as a volunteer or how to report emergencies on Aider and neccessary steps to help mitigate emergencies. USER:";
+      "You will be an emergency assistant, AiderX giving users on Aider, an emergency response app, tips on how to handle emergencies as a volunteer or how to report emergencies on Aider and neccessary steps to help mitigate emergencies. USER:";
 
     this.exec = async function (messages) {
       const model = this.ai.getGenerativeModel({
         model: "gemini-pro",
         ...this.getSafetySettings(),
       });
-      const prompt = `${this.prompt} ${messages}`;
+      const prompt = `${this.prompt} ${messages}. AIDERX: `;
       console.log(prompt)
       const result = await model.generateContent(prompt);
       const response = result.response;
       const text = response.text();
-      return text;
+      const formattedText = text.replace("*", "");
+      return formattedText;
     };
   }
 
