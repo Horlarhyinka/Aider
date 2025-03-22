@@ -7,6 +7,10 @@ class Validator{
             name: Joi.string().required(),
             description: Joi.string().required(),
             coord: Joi.object({ lng: Joi.number().min(0).required(), lat: Joi.number().min(0).required()}).required(),
+            audio: Joi.string().optional(),
+            image: Joi.string().optional(),
+            address: Joi.string(),
+
         }).validate(obj)
     }
 
@@ -27,7 +31,9 @@ class Validator{
         return Joi.object({
             name: Joi.string().required(),
             text: Joi.string().required(),
-            avatar: Joi.string()
+            avatar: Joi.string(),
+            images: Joi.array(),
+            userId: Joi.string().required(),
         }).validate(obj)
     }
 }

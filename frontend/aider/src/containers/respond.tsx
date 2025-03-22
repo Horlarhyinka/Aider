@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Map } from "../components/map"
 import { Icon } from "@iconify/react/dist/iconify.js"
 

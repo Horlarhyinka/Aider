@@ -2,6 +2,7 @@ import { UserSchema } from "../models/types/user";
 import { pick, Topics } from "../utils/factory";
 import { FirebaseService, firebaseService as fbService } from "./firebase.service";
 import { Document } from "mongoose";
+import mailerService from "./mailer.service";
 
 class EmergencyService {
 
@@ -38,20 +39,34 @@ class EmergencyService {
         return this.firebaseService.queryFirebase(path)
     }
 
+    getInferenceChats(emergencyId: string){
+        const path = `emergencies/${emergencyId}/inference-chats`
+        return this.firebaseService.queryFirebase(path)
+    }
+
     postMessage(emergencyId: string, message: object){
         const path = `emergencies/${emergencyId}/chats`
         return this.firebaseService.sendToFirebase(path, message)
     }
 
+    postInferenceMessage(emergencyId: string, message: object){
+        const path = `emergencies/${emergencyId}/inference-chats`
+        return this.firebaseService.sendToFirebase(path, message)
+    }
+
+
+
     subscribe(token: string){
         return this.firebaseService.subscribeDevice(token, Topics.emergency)
     }
 
-    sendBroadcast(){
-        return this.firebaseService.sendPushNotification(Topics.emergency, {
-            title: "Emergency Alert!!!",
-            data: "There is a medical emergency and we need your help!!!"
-        })
+    async sendBroadcast(emails?: string[]){
+        //send email
+        // await this.firebaseService.sendPushNotification(Topics.emergency, {
+        //     title: "Emergency Alert!!!",
+        //     data: "There is a medical emergency and we need your help!!!"
+        // })
+        // if(emails)return Promise.all(emails.map(addr=>mailerService.sendEmergencyAlert(addr)))
     }
 }
 

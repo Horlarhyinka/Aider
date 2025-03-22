@@ -37,3 +37,18 @@ export const firebaseConfig = {
     client_x509_cert_url: process.env.FIREBASE_CLIENT_X509_CERT_URL!,
     universe_domain: process.env.FIREBASE_UNIVERSE_DOMAIN!
   }
+
+  export const googleAiConfig = {
+    apiKey: process.env.GEMINI_API_KEY
+  }
+
+  export const mailConfig = {
+    auth: {user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
+    },
+    host: process.env.MAIL_HOST,
+    port: process.env.MAIL_PORT,
+    service: process.env.MAIL_SERVICE
+}
+
+console.log({mailConfig})

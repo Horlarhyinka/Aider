@@ -8,10 +8,10 @@ class Validator{
             tel: Joi.string(),
             email: Joi.string().required(),
             password: Joi.string().required(),
-            skill: Joi.string(),
+            skill: Joi.string().required(),
             about: Joi.string(),
             deviceToken: Joi.string(),
-            category: Joi.string().required(),
+            experience: Joi.number().required().default(0),
         }).validate(obj)
     }
 

@@ -13,7 +13,7 @@ export class FirebaseService {
         data = cleanUndefined(cleanObjectIds(data))
         const firestore = await getFirestoreDB()
         const docRef = collection(firestore, path)
-        await addDoc(docRef, data)
+        await addDoc(docRef, {...data, createdAt: Date.now()})
     }
 
     async queryFirebase(path: string, condition: object = {}, operator?: WhereFilterOp){

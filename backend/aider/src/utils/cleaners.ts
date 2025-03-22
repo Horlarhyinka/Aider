@@ -35,3 +35,10 @@ export function cleanUndefined(obj: any): any {
 
     return obj;
 }
+
+export const cleanText = function(input: string) {
+    // Remove unnecessary asterisks
+    let cleanedText = input.replace(/\*\*/g, '');
+    cleanedText = cleanedText.replace(/^\s*\*\s*/gm, '');
+    return cleanedText;
+}
