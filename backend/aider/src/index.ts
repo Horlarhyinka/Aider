@@ -11,7 +11,7 @@ import userRouter from './routers/user.router'
 const app = express()
 
 app.use(helmet())
-app.use(cors({origin: "*"}))
+app.use(cors({origin: appConfig.mode == 'production'?[appConfig.client]:"*"}))
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
